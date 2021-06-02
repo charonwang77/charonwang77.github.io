@@ -22,7 +22,7 @@
 <meta property="og:title" content="Charon" />
 <meta property="og:description" content="软件工程师" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://charonwang77.github.io/" /><meta property="og:site_name" content="Charon" />
+<meta property="og:url" content="http://charonwang77.github.io/" /><meta property="og:site_name" content="Charon" />
 
 
 
@@ -33,46 +33,46 @@
   "@graph": [
     {
       "@type":"Person",
-      "@id": "https://charonwang77.github.io/#author",
+      "@id": "http://charonwang77.github.io/#author",
       "name":  null ,
       "image": {
         "@type":"ImageObject",
         
-        "url": "https://charonwang77.github.io/images/profile.jpg"
+        "url": "http://charonwang77.github.io/images/profile.jpg"
         
       },
       "description": "软件工程师"
     },
     {
       "@type": "WebSite",
-      "@id": "https://charonwang77.github.io/#website",
-      "url": "https://charonwang77.github.io/",
+      "@id": "http://charonwang77.github.io/#website",
+      "url": "http://charonwang77.github.io/",
       "name": "Charon",
       "description": "软件工程师",
       "publisher": {
-        "@id": "https://charonwang77.github.io/#author"
+        "@id": "http://charonwang77.github.io/#author"
       },
       "inLanguage": "en-us"
     },
     {
       "@type": "WebPage",
-      "@id": "https://charonwang77.github.io/#webpage",
-      "url": "https://charonwang77.github.io/",
+      "@id": "http://charonwang77.github.io/#webpage",
+      "url": "http://charonwang77.github.io/",
       "name": "Charon",
       "isPartOf": {
-        "@id": "https://charonwang77.github.io/#website"
+        "@id": "http://charonwang77.github.io/#website"
       },
       "about": {
-         "@id": "https://charonwang77.github.io/#author"
+         "@id": "http://charonwang77.github.io/#author"
       },
-      "dateModified": "2021-05-19T12:53:09+08:00",
+      "dateModified": "2021-06-01T23:11:30+08:00",
       "description": "软件工程师",
       "inLanguage": "en-us",
       "potentialAction": [
         {
           "@type": "ReadAction",
           "target": [
-            "https://charonwang77.github.io/"
+            "http://charonwang77.github.io/"
           ]
         }
       ]
@@ -116,7 +116,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="https://charonwang77.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Charon" />
+  <link href="http://charonwang77.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Charon" />
   </head>
 <body>
   <aside class="sidebar">
@@ -125,7 +125,7 @@
       
         
         <div class="author-image">
-          <a href="https://charonwang77.github.io/">
+          <a href="http://charonwang77.github.io/">
             <img src="/images/profile.jpg" class="img-circle img-headshot center" alt="Profile Picture">
           </a>
         </div>
@@ -142,7 +142,7 @@
     <nav>
       <ul class="sidebar-nav">
         <li>
-          <a href="https://charonwang77.github.io/">Home</a>
+          <a href="http://charonwang77.github.io/">Home</a>
         </li>
         
       </ul>
@@ -159,7 +159,68 @@
   <div class="posts">
       <article class="post">
         <h1 class="post-title">
-          <a href="https://charonwang77.github.io/post/blog/">Charon的个人简介</a>
+          <a href="http://charonwang77.github.io/post/blog_stl/">STL容器特性总结</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2021-06-01T23:11:30&#43;0800">Jun 1, 2021</time> &middot; 1 min read
+        </div>
+
+        <div>
+          STL容器特性总结 1.Sequence Containers: 维持顺序的容器 vector:
+动态数组；
+O(1)随机读取，O(1)尾部增删；
+可作stack用。
+list :
+双向链表；
+可做stack和queue用。
+deque:
+双端队列；
+O(1)随机读取，O(1)头部尾部增删。
+2.Container Adaptors: 基于其他容器实现的数据结构 stack:
+栈，后入先出；
+常用于深度优先、字符串匹配、单调栈问题；
+默认基于deque。
+queue:
+队列，先入先出；
+常用于广度优先搜索；
+默认基于deque。
+priority_queue:
+最大值先出的数据结构；
+用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；
+常用于维护数据结构并快速获取最大最小；
+默认基于vector。
+3.Associative Containers: 实现了排好序的数据结构 set:
+有序集合，元素不可重复；
+O(nlogn)排序数组，插入删除查找任意值，获得最大最小值。
+multiset:
+支持重复元素的set。
+map:
+有序映射或有序表；
+在map的基础上加上映射关系，可以对每一个元素key存一个值value。
+multimap:
+支持重复元素的map。
+4.Unordered Associative Containers: 对每个Associative Containers实现了哈希版本 unordered_set:
+哈希集合；
+O(1)插入、查找、删除元素；
+常用于快速查询一个元素是否在这个容器内。
+unordered_multiset:
+支持重复元素的unordered_set。
+unordered_map:
+哈希映射或哈希表；
+在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。
+unordered_multimap:
+支持重复元素的unordered_map。
+5.堆 heap 
+        </div>
+
+        <div class="read-more-link">
+          <a href="http://charonwang77.github.io/post/blog_stl/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+        <h1 class="post-title">
+          <a href="http://charonwang77.github.io/post/blog/">Charon的个人简介</a>
         </h1>
 
         <div class="post-date">
@@ -173,7 +234,7 @@
         </div>
 
         <div class="read-more-link">
-          <a href="https://charonwang77.github.io/post/blog/">Read More</a>
+          <a href="http://charonwang77.github.io/post/blog/">Read More</a>
         </div>
       </article>
   </div>

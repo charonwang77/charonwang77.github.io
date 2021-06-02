@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.83.1" />
+
+  <title>STL容器特性总结 &middot; Charon</title>
+
+  <meta name="description" content="" />
+
+  
+
+<meta itemprop="name" content="STL容器特性总结">
+<meta itemprop="description" content="STL容器特性总结 1.Sequence Containers: 维持顺序的容器 vector:
+动态数组；
+O(1)随机读取，O(1)尾部增删；
+可作stack用。
+list :
+双向链表；
+可做stack和queue用。
+deque:
+双端队列；
+O(1)随机读取，O(1)头部尾部增删。
+2.Container Adaptors: 基于其他容器实现的数据结构 stack:
+栈，后入先出；
+常用于深度优先、字符串匹配、单调栈问题；
+默认基于deque。
+queue:
+队列，先入先出；
+常用于广度优先搜索；
+默认基于deque。
+priority_queue:
+最大值先出的数据结构；
+用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；
+常用于维护数据结构并快速获取最大最小；
+默认基于vector。
+3.Associative Containers: 实现了排好序的数据结构 set:
+有序集合，元素不可重复；
+O(nlogn)排序数组，插入删除查找任意值，获得最大最小值。
+multiset:
+支持重复元素的set。
+map:
+有序映射或有序表；
+在map的基础上加上映射关系，可以对每一个元素key存一个值value。
+multimap:
+支持重复元素的map。
+4.Unordered Associative Containers: 对每个Associative Containers实现了哈希版本 unordered_set:
+哈希集合；
+O(1)插入、查找、删除元素；
+常用于快速查询一个元素是否在这个容器内。
+unordered_multiset:
+支持重复元素的unordered_set。
+unordered_map:
+哈希映射或哈希表；
+在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。
+unordered_multimap:
+支持重复元素的unordered_map。
+5.堆 heap "><meta itemprop="datePublished" content="2021-06-01T23:11:30&#43;08:00" />
+<meta itemprop="dateModified" content="2021-06-01T23:11:30&#43;08:00" />
+<meta itemprop="wordCount" content="63">
+<meta itemprop="keywords" content="" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="STL容器特性总结"/>
+<meta name="twitter:description" content="STL容器特性总结 1.Sequence Containers: 维持顺序的容器 vector:
+动态数组；
+O(1)随机读取，O(1)尾部增删；
+可作stack用。
+list :
+双向链表；
+可做stack和queue用。
+deque:
+双端队列；
+O(1)随机读取，O(1)头部尾部增删。
+2.Container Adaptors: 基于其他容器实现的数据结构 stack:
+栈，后入先出；
+常用于深度优先、字符串匹配、单调栈问题；
+默认基于deque。
+queue:
+队列，先入先出；
+常用于广度优先搜索；
+默认基于deque。
+priority_queue:
+最大值先出的数据结构；
+用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；
+常用于维护数据结构并快速获取最大最小；
+默认基于vector。
+3.Associative Containers: 实现了排好序的数据结构 set:
+有序集合，元素不可重复；
+O(nlogn)排序数组，插入删除查找任意值，获得最大最小值。
+multiset:
+支持重复元素的set。
+map:
+有序映射或有序表；
+在map的基础上加上映射关系，可以对每一个元素key存一个值value。
+multimap:
+支持重复元素的map。
+4.Unordered Associative Containers: 对每个Associative Containers实现了哈希版本 unordered_set:
+哈希集合；
+O(1)插入、查找、删除元素；
+常用于快速查询一个元素是否在这个容器内。
+unordered_multiset:
+支持重复元素的unordered_set。
+unordered_map:
+哈希映射或哈希表；
+在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。
+unordered_multimap:
+支持重复元素的unordered_map。
+5.堆 heap "/>
+
+
+<meta property="og:title" content="STL容器特性总结" />
+<meta property="og:description" content="STL容器特性总结 1.Sequence Containers: 维持顺序的容器 vector:
+动态数组；
+O(1)随机读取，O(1)尾部增删；
+可作stack用。
+list :
+双向链表；
+可做stack和queue用。
+deque:
+双端队列；
+O(1)随机读取，O(1)头部尾部增删。
+2.Container Adaptors: 基于其他容器实现的数据结构 stack:
+栈，后入先出；
+常用于深度优先、字符串匹配、单调栈问题；
+默认基于deque。
+queue:
+队列，先入先出；
+常用于广度优先搜索；
+默认基于deque。
+priority_queue:
+最大值先出的数据结构；
+用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；
+常用于维护数据结构并快速获取最大最小；
+默认基于vector。
+3.Associative Containers: 实现了排好序的数据结构 set:
+有序集合，元素不可重复；
+O(nlogn)排序数组，插入删除查找任意值，获得最大最小值。
+multiset:
+支持重复元素的set。
+map:
+有序映射或有序表；
+在map的基础上加上映射关系，可以对每一个元素key存一个值value。
+multimap:
+支持重复元素的map。
+4.Unordered Associative Containers: 对每个Associative Containers实现了哈希版本 unordered_set:
+哈希集合；
+O(1)插入、查找、删除元素；
+常用于快速查询一个元素是否在这个容器内。
+unordered_multiset:
+支持重复元素的unordered_set。
+unordered_map:
+哈希映射或哈希表；
+在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。
+unordered_multimap:
+支持重复元素的unordered_map。
+5.堆 heap " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://charonwang77.github.io/post/blog_stl/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-06-01T23:11:30&#43;08:00" />
+<meta property="article:modified_time" content="2021-06-01T23:11:30&#43;08:00" /><meta property="og:site_name" content="Charon" />
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type":"Person",
+      "@id": "http://charonwang77.github.io/#author",
+      "name":  null ,
+      "image": {
+        "@type":"ImageObject",
+        
+        "url": "http://charonwang77.github.io/images/profile.jpg"
+        
+      },
+      "description": "软件工程师"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://charonwang77.github.io/#website",
+      "url": "http://charonwang77.github.io/",
+      "name": "Charon",
+      "description": "软件工程师",
+      "publisher": {
+        "@id": "http://charonwang77.github.io/#author"
+      },
+      "inLanguage": "en-us"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "http://charonwang77.github.io/post/blog_stl/#webpage",
+      "url": "http://charonwang77.github.io/post/blog_stl/",
+      "name": "STL容器特性总结",
+      "isPartOf": {
+        "@id": "http://charonwang77.github.io/#website"
+      },
+      "about": {
+         "@id": "http://charonwang77.github.io/#author"
+      },
+      "datePublished": "2021-06-01T23:11:30+08:00",
+      "dateModified": "2021-06-01T23:11:30+08:00",
+      "description": "STL容器特性总结 1.Sequence Containers: 维持顺序的容器 vector:\n动态数组；\nO(1)随机读取，O(1)尾部增删；\n可作stack用。\nlist :\n双向链表；\n可做stack和queue用。\ndeque:\n双端队列；\nO(1)随机读取，O(1)头部尾部增删。\n2.Container Adaptors: 基于其他容器实现的数据结构 stack:\n栈，后入先出；\n常用于深度优先、字符串匹配、单调栈问题；\n默认基于deque。\nqueue:\n队列，先入先出；\n常用于广度优先搜索；\n默认基于deque。\npriority_queue:\n最大值先出的数据结构；\n用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；\n常用于维护数据结构并快速获取最大最小；\n默认基于vector。\n3.Associative Containers: 实现了排好序的数据结构 set:\n有序集合，元素不可重复；\nO(nlogn)排序数组，插入删除查找任意值，获得最大最小值。\nmultiset:\n支持重复元素的set。\nmap:\n有序映射或有序表；\n在map的基础上加上映射关系，可以对每一个元素key存一个值value。\nmultimap:\n支持重复元素的map。\n4.Unordered Associative Containers: 对每个Associative Containers实现了哈希版本 unordered_set:\n哈希集合；\nO(1)插入、查找、删除元素；\n常用于快速查询一个元素是否在这个容器内。\nunordered_multiset:\n支持重复元素的unordered_set。\nunordered_map:\n哈希映射或哈希表；\n在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。\nunordered_multimap:\n支持重复元素的unordered_map。\n5.堆 heap ",
+      "inLanguage": "en-us",
+      "potentialAction": [
+        {
+          "@type": "ReadAction",
+          "target": [
+            "http://charonwang77.github.io/post/blog_stl/"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "isPartOf": {
+        "@id": "http://charonwang77.github.io/post/blog_stl/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "http://charonwang77.github.io/post/blog_stl/#webpage"
+      },
+      "headline": "STL容器特性总结",
+      "datePublished": "2021-06-01T23:11:30+08:00",
+      "dateModified": "2021-06-01T23:11:30+08:00",
+      "publisher": {
+        "@id": "http://charonwang77.github.io/#author"
+      },
+      "keywords": [
+      ],
+      "articleSection": [
+      ],
+      "inLanguage": "en-us",
+      "author": {
+        "@type": "Person",
+        "name":  null 
+      },
+      "potentialAction": [
+        {
+          "@type": "CommentAction",
+          "name": "Comment",
+          "target": [
+            "http://charonwang77.github.io/post/blog_stl/#comments"
+          ]
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/print.css"
+        media="print">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/poole.css">
+
+  <link type="text/css"
+        rel="stylesheet"
+        href="/css/hyde.css">
+
+  
+
+
+  
+
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+        crossorigin="anonymous" />
+
+  <link rel="apple-touch-icon-precomposed"
+        sizes="144x144"
+        href="/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  </head>
+<body>
+  <aside class="sidebar">
+  <div class="container">
+    <div class="sidebar-about">
+      
+        
+        <div class="author-image">
+          <a href="http://charonwang77.github.io/">
+            <img src="/images/profile.jpg" class="img-circle img-headshot center" alt="Profile Picture">
+          </a>
+        </div>
+        
+      
+
+      <h1>Charon</h1>
+
+      
+      <p class="lead">软件工程师</p>
+      
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="http://charonwang77.github.io/">Home</a>
+        </li>
+        
+      </ul>
+    </nav>
+
+    <section class="social-icons">
+      
+    </section>
+  </div>
+</aside>
+
+
+  <main class="content container">
+  <div class="post">
+  <h1 class="title">STL容器特性总结</h1>
+  
+
+  <div class="post-date">
+    <time datetime="2021-06-01T23:11:30&#43;0800">Jun 1, 2021</time> <span class="readtime">&middot; 1 min read</span>
+  </div>
+
+  <div>
+  <h1 id="stl容器特性总结">STL容器特性总结</h1>
+<h2 id="1sequence-containers">1.Sequence Containers:</h2>
+<h2 id="维持顺序的容器">维持顺序的容器</h2>
+<p><strong>vector</strong>:<br>
+    动态数组；<br>
+    O(1)随机读取，O(1)尾部增删；<br>
+    可作stack用。</p>
+<p><strong>list</strong> :<br>
+    双向链表；<br>
+    可做stack和queue用。</p>
+<p><strong>deque</strong>:<br>
+    双端队列；<br>
+    O(1)随机读取，O(1)头部尾部增删。</p>
+<h2 id="2container-adaptors">2.Container Adaptors:</h2>
+<h2 id="基于其他容器实现的数据结构">基于其他容器实现的数据结构</h2>
+<p><strong>stack</strong>:<br>
+    栈，后入先出；<br>
+    常用于深度优先、字符串匹配、单调栈问题；<br>
+    默认基于deque。</p>
+<p><strong>queue</strong>:<br>
+    队列，先入先出；<br>
+    常用于广度优先搜索；<br>
+    默认基于deque。</p>
+<p><strong>priority_queue</strong>:<br>
+    最大值先出的数据结构；<br>
+    用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；<br>
+    常用于维护数据结构并快速获取最大最小；<br>
+    默认基于vector。</p>
+<h2 id="3associative-containers">3.Associative Containers:</h2>
+<h2 id="实现了排好序的数据结构">实现了排好序的数据结构</h2>
+<p><strong>set</strong>:<br>
+    有序集合，元素不可重复；<br>
+    O(nlogn)排序数组，插入删除查找任意值，获得最大最小值。</p>
+<p><strong>multiset</strong>:<br>
+    支持重复元素的set。</p>
+<p><strong>map</strong>:<br>
+    有序映射或有序表；<br>
+    在map的基础上加上映射关系，可以对每一个元素key存一个值value。</p>
+<p><strong>multimap</strong>:<br>
+    支持重复元素的map。</p>
+<h2 id="4unordered-associative-containers">4.Unordered Associative Containers:</h2>
+<h2 id="对每个associative-containers实现了哈希版本">对每个Associative Containers实现了哈希版本</h2>
+<p><strong>unordered_set</strong>:<br>
+    哈希集合；<br>
+    O(1)插入、查找、删除元素；<br>
+    常用于快速查询一个元素是否在这个容器内。</p>
+<p><strong>unordered_multiset</strong>:<br>
+    支持重复元素的unordered_set。</p>
+<p><strong>unordered_map</strong>:<br>
+    哈希映射或哈希表；<br>
+    在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。</p>
+<p><strong>unordered_multimap</strong>:<br>
+    支持重复元素的unordered_map。</p>
+<h2 id="5堆-heap">5.堆 heap</h2>
+
+  </div>
+
+  
+
+
+  <div class="share-buttons">
+  <a class="twitter-share-button"
+     href="#"
+     title="Share on Twitter"
+     data-url="http://charonwang77.github.io/post/blog_stl/"
+     data-text="STL容器特性总结"><i class="fab fa-twitter"></i></a>
+
+  <a class="linkedin-share-button"
+     href="#"
+     title="Share on LinkedIn"
+     data-url="http://charonwang77.github.io/post/blog_stl/"
+     data-text="STL容器特性总结"><i class="fab fa-linkedin-in"></i></a>
+
+  <a class="facebook-share-button"
+     href="#"
+     title="Share on Facebook"
+     data-url="http://charonwang77.github.io/post/blog_stl/"
+     data-text="STL容器特性总结"><i class="fab fa-facebook"></i></a>
+
+  <a class="telegram-share-button"
+     href="#"
+     title="Share on Telegram"
+     data-url="http://charonwang77.github.io/post/blog_stl/"
+     data-text="STL容器特性总结"><i class="fab fa-telegram"></i></a>
+
+  <a class="pinterest-share-button"
+     href="#"
+     title="Share on Pinterest"
+     data-url="http://charonwang77.github.io/post/blog_stl/"
+     data-text="STL容器特性总结"><i class="fab fa-pinterest"></i></a>
+</div>
+
+
+  
+</div>
+  </main>
+
+  <footer>
+  <div>
+    <p>
+      &copy;  2021
+
+      
+
+      
+    </p>
+  </div>
+</footer>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+          integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0="
+          crossorigin="anonymous"></script>
+
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/soho.js"></script>
+
+  
+
+  
+</body>
+</html>
