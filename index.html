@@ -22,7 +22,7 @@
 <meta property="og:title" content="Charon" />
 <meta property="og:description" content="软件工程师" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://charonwang77.github.io/" /><meta property="og:site_name" content="Charon" />
+<meta property="og:url" content="https://charon-7.github.io/" /><meta property="og:site_name" content="Charon" />
 
 
 
@@ -33,46 +33,46 @@
   "@graph": [
     {
       "@type":"Person",
-      "@id": "http://charonwang77.github.io/#author",
+      "@id": "https://charon-7.github.io/#author",
       "name":  null ,
       "image": {
         "@type":"ImageObject",
         
-        "url": "http://charonwang77.github.io/images/profile.jpg"
+        "url": "https://charon-7.github.io/images/profile.jpg"
         
       },
       "description": "软件工程师"
     },
     {
       "@type": "WebSite",
-      "@id": "http://charonwang77.github.io/#website",
-      "url": "http://charonwang77.github.io/",
+      "@id": "https://charon-7.github.io/#website",
+      "url": "https://charon-7.github.io/",
       "name": "Charon",
       "description": "软件工程师",
       "publisher": {
-        "@id": "http://charonwang77.github.io/#author"
+        "@id": "https://charon-7.github.io/#author"
       },
       "inLanguage": "en-us"
     },
     {
       "@type": "WebPage",
-      "@id": "http://charonwang77.github.io/#webpage",
-      "url": "http://charonwang77.github.io/",
+      "@id": "https://charon-7.github.io/#webpage",
+      "url": "https://charon-7.github.io/",
       "name": "Charon",
       "isPartOf": {
-        "@id": "http://charonwang77.github.io/#website"
+        "@id": "https://charon-7.github.io/#website"
       },
       "about": {
-         "@id": "http://charonwang77.github.io/#author"
+         "@id": "https://charon-7.github.io/#author"
       },
-      "dateModified": "2021-06-01T23:11:30+08:00",
+      "dateModified": "2021-07-15T18:53:09+08:00",
       "description": "软件工程师",
       "inLanguage": "en-us",
       "potentialAction": [
         {
           "@type": "ReadAction",
           "target": [
-            "http://charonwang77.github.io/"
+            "https://charon-7.github.io/"
           ]
         }
       ]
@@ -116,7 +116,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="http://charonwang77.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Charon" />
+  <link href="https://charon-7.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Charon" />
   </head>
 <body>
   <aside class="sidebar">
@@ -125,7 +125,7 @@
       
         
         <div class="author-image">
-          <a href="http://charonwang77.github.io/">
+          <a href="https://charon-7.github.io/">
             <img src="/images/profile.jpg" class="img-circle img-headshot center" alt="Profile Picture">
           </a>
         </div>
@@ -142,7 +142,7 @@
     <nav>
       <ul class="sidebar-nav">
         <li>
-          <a href="http://charonwang77.github.io/">Home</a>
+          <a href="https://charon-7.github.io/">Home</a>
         </li>
         
       </ul>
@@ -159,7 +159,31 @@
   <div class="posts">
       <article class="post">
         <h1 class="post-title">
-          <a href="http://charonwang77.github.io/post/blog_stl/">STL容器特性总结</a>
+          <a href="https://charon-7.github.io/post/blog_markdown/">【MarkDown】MarkDown语法</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2021-07-15T18:53:09&#43;0800">Jul 15, 2021</time> &middot; 1 min read
+        </div>
+
+        <div>
+          一、各级标题 一级标题：# 标题 二级标题：## 标题 三级标题：### 标题 四级标题：#### 标题 五级标题：##### 标题 六级标题：###### 标题 二、字体 加粗：**文字** 加粗的文字
+删除线：~~文字~~ 被删除的文字
+斜体：*文字* 斜体文字
+三、代码块 代码块：```语言 int a = 0; int b = 1; print(&#34;%d&#34;,a+b); 四、引用 引用：&gt;作者 &gt;&gt;作者  引用A
+ 引用B
+  五、分割线 分割线：--- 分割线：***  分割的段落A
+ 分割的段落B
+六、图片插入 在线图片+本地图片：![图片名字](图片路径) // 图片的名字会在图片加载失败时显示 // 本地图片放在和md同一级目录时，路径 = ../imagename.jpg 七、超链接 超链接：[我的github](地址) 我的GitHub
+        </div>
+
+        <div class="read-more-link">
+          <a href="https://charon-7.github.io/post/blog_markdown/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+        <h1 class="post-title">
+          <a href="https://charon-7.github.io/post/blog_stl/">【C&#43;&#43;】STL容器特性总结</a>
         </h1>
 
         <div class="post-date">
@@ -167,60 +191,21 @@
         </div>
 
         <div>
-          STL容器特性总结 1.Sequence Containers: 维持顺序的容器 vector:
+          STL容器特性总结 1.Sequence Containers: 维持顺序的容器
+vector:
 动态数组；
 O(1)随机读取，O(1)尾部增删；
 可作stack用。
-list :
-双向链表；
-可做stack和queue用。
-deque:
-双端队列；
-O(1)随机读取，O(1)头部尾部增删。
-2.Container Adaptors: 基于其他容器实现的数据结构 stack:
-栈，后入先出；
-常用于深度优先、字符串匹配、单调栈问题；
-默认基于deque。
-queue:
-队列，先入先出；
-常用于广度优先搜索；
-默认基于deque。
-priority_queue:
-最大值先出的数据结构；
-用O(nlogn)的时间排序数组，O(nlogn)的时间插入任意值，O(1)的时间获得最大值, O(logn)的时间删除最大值；
-常用于维护数据结构并快速获取最大最小；
-默认基于vector。
-3.Associative Containers: 实现了排好序的数据结构 set:
-有序集合，元素不可重复；
-O(nlogn)排序数组，插入删除查找任意值，获得最大最小值。
-multiset:
-支持重复元素的set。
-map:
-有序映射或有序表；
-在map的基础上加上映射关系，可以对每一个元素key存一个值value。
-multimap:
-支持重复元素的map。
-4.Unordered Associative Containers: 对每个Associative Containers实现了哈希版本 unordered_set:
-哈希集合；
-O(1)插入、查找、删除元素；
-常用于快速查询一个元素是否在这个容器内。
-unordered_multiset:
-支持重复元素的unordered_set。
-unordered_map:
-哈希映射或哈希表；
-在unordered_set基础上加上映射关系，可以对每一个元素key存一个值value。
-unordered_multimap:
-支持重复元素的unordered_map。
-5.堆 heap 
+//创建vector容器对象，并且通过模板参数指定容器中存放的数据的类型  vector&lt;int&gt; v1; //向容器中放数据  v1.push_back(10); v1.push_back(20); v1.push_back(30); v1.push_back(40); vector&lt;int&gt; v2; v2 = v1; vector&lt;int&gt; v3; v3.assign(10,0); // 10个0赋值给v3  v1.begin(); // 返回迭代器，这个迭代器指向容器中第一个数据  v1.end(); // 返回迭代器，这个迭代器指向容器元素的最后一个元素的下一个位置 // 遍历方式：  for (vector&lt;int&gt;::iterator it = v1.begin(); it != v1.end(); it++) { cout &lt;&lt; *it &lt;&lt; endl; } cout &lt;&lt; endl; // 功能:容量和大小  v1.empty(); // 判断容器是否为空  v1.capacity(); // 容器的容量  v1.size(); // 返回容器中元素的个数  v1.
         </div>
 
         <div class="read-more-link">
-          <a href="http://charonwang77.github.io/post/blog_stl/">Read More</a>
+          <a href="https://charon-7.github.io/post/blog_stl/">Read More</a>
         </div>
       </article>
       <article class="post">
         <h1 class="post-title">
-          <a href="http://charonwang77.github.io/post/blog/">Charon的个人简介</a>
+          <a href="https://charon-7.github.io/post/blog_algorithm/">[最优化]一维搜索</a>
         </h1>
 
         <div class="post-date">
@@ -228,13 +213,28 @@ unordered_multimap:
         </div>
 
         <div>
-          一个7点起床11点睡觉的打杂程序员;
-一个喜欢猫、喜欢爬山和滑雪的LSP;
-一个热爱数学、热爱代码、热爱学习的FP.
+          一、试探法 进退法 等距搜索法 二分搜索法 分数法 0.618法 二、插值法 三点二次插值法 试位法 牛顿法 
         </div>
 
         <div class="read-more-link">
-          <a href="http://charonwang77.github.io/post/blog/">Read More</a>
+          <a href="https://charon-7.github.io/post/blog_algorithm/">Read More</a>
+        </div>
+      </article>
+      <article class="post">
+        <h1 class="post-title">
+          <a href="https://charon-7.github.io/post/blog/">Charon的个人简介</a>
+        </h1>
+
+        <div class="post-date">
+          <time datetime="2021-05-19T12:53:09&#43;0800">May 19, 2021</time> &middot; 1 min read
+        </div>
+
+        <div>
+          教育经历 武汉理工大学 数学 
+        </div>
+
+        <div class="read-more-link">
+          <a href="https://charon-7.github.io/post/blog/">Read More</a>
         </div>
       </article>
   </div>

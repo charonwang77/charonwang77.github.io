@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://charonwang77.github.io/</loc>
+    <loc>https://charon-7.github.io/</loc>
+    <lastmod>2021-07-15T18:53:09+08:00</lastmod>
+  </url><url>
+    <loc>https://charon-7.github.io/post/</loc>
+    <lastmod>2021-07-15T18:53:09+08:00</lastmod>
+  </url><url>
+    <loc>https://charon-7.github.io/post/blog_markdown/</loc>
+    <lastmod>2021-07-15T18:53:09+08:00</lastmod>
+  </url><url>
+    <loc>https://charon-7.github.io/post/blog_stl/</loc>
     <lastmod>2021-06-01T23:11:30+08:00</lastmod>
   </url><url>
-    <loc>http://charonwang77.github.io/post/</loc>
-    <lastmod>2021-06-01T23:11:30+08:00</lastmod>
-  </url><url>
-    <loc>http://charonwang77.github.io/post/blog_stl/</loc>
-    <lastmod>2021-06-01T23:11:30+08:00</lastmod>
-  </url><url>
-    <loc>http://charonwang77.github.io/post/blog/</loc>
+    <loc>https://charon-7.github.io/post/blog_algorithm/</loc>
     <lastmod>2021-05-19T12:53:09+08:00</lastmod>
   </url><url>
-    <loc>http://charonwang77.github.io/categories/</loc>
+    <loc>https://charon-7.github.io/post/blog/</loc>
+    <lastmod>2021-05-19T12:53:09+08:00</lastmod>
   </url><url>
-    <loc>http://charonwang77.github.io/tags/</loc>
+    <loc>https://charon-7.github.io/categories/</loc>
+  </url><url>
+    <loc>https://charon-7.github.io/tags/</loc>
   </url>
 </urlset>
